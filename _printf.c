@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
 					count += counter - 1;
 					break;
 				default:
-					break;
+					continue;
 			}
 		}
 		count++;
