@@ -6,10 +6,21 @@
  * Return: the number of characters printed to stdout
  */
 
+int _printf(const char *format, ...);
+
+int main(int argc, char const *argv[])
+{
+        _printf("great work\n");
+        _printf("%s\n","Yoseph");
+        _printf("%c\n",'a');
+        _printf("%%");
+        return 0;
+}
+
 int _printf(const char *format, ...)
 {
+        int count = 0;
         va_list list;
-        size_t i, j,count = 0;
         if (format == NULL)
                 return (-1);
         va_start(list, format);
@@ -22,7 +33,7 @@ int _printf(const char *format, ...)
                 }
                 else
                 {
-                        format++;
+                        *format++;
                         if (*format == '\0')
                                 break;
                         if (*format == '%')
@@ -32,8 +43,9 @@ int _printf(const char *format, ...)
                         }
                         else if (*format == 'c')
                         {
-                                _putchar(va_arg(list, int));
-				break;
+                                char character = va_arg(list,int);
+                                write(1, &character, 1);
+                                count++;
                         }
                         else if (*format == 's')
                         {
@@ -50,3 +62,5 @@ int _printf(const char *format, ...)
         }
         va_end(list);
 }
+
+
