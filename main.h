@@ -8,5 +8,5 @@
 int _putchar(char c);
 int _printf(const char *format, ...);
 int num_print(int n);
-
+int str_print(char *s);
 #endif

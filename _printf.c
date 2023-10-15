@@ -8,9 +8,8 @@
 
 int _printf(const char *format, ...)
 {
-	int count = 0, i, counter = 0;
+	int count = 0, i;
 	va_list args;
-	char *str;
 
 	if (format == NULL)
 		return (-1);
@@ -33,12 +32,7 @@ int _printf(const char *format, ...)
 					_putchar(va_arg(args, int));
 					break;
 				case 's':
-					str = va_arg(args, char *);
-					while (str[counter] != '\0')
-					{
-						_putchar(str[counter++]);
-					}
-					count += counter - 1;
+					count += str_print(va_arg(args, char *));
 					break;
 				default:
 					continue;
