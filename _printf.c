@@ -33,9 +33,8 @@ int _printf(const char *format, ...)
                         }
                         else if (*format == 'c')
                         {
-                                char charcter = va_arg(list, int);
-                                write(1,&charcter, 1);
-                                count++;
+                                _putchar(va_arg(list, int));
+				break;
                         }
                         else if (*format == 's')
                         {
