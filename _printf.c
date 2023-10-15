@@ -9,11 +9,10 @@
 int _printf(const char *format, ...)
 {
         va_list list;
-        size_t i, j,count = 0, arg_length;
-        arg_length = sizeof(*format)/(format[0]);
-        char *str;
+        size_t i, j,count = 0;
         if (format == NULL)
                 return (-1);
+        va_start(list, format);
         while (*format)
         {
                 if (*format != '%')
