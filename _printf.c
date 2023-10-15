@@ -8,8 +8,10 @@
 
 int _printf(const char *format, ...)
 {
-        int count = 0;
+        int count = 0, counter;
         va_list list;
+	char *str;
+
         if (format == NULL)
                 return (-1);
         va_start(list, format);
@@ -38,8 +40,8 @@ int _printf(const char *format, ...)
                         }
                         else if (*format == 's')
                         {
-                                char *str = va_arg(list, char*);
-                                int counter = 0;
+                                str = va_arg(list, char*);
+                                counter = 0;
                                 while (str[counter] != '\0')
                                         counter++;
 
