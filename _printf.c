@@ -6,17 +6,6 @@
  * Return: the number of characters printed to stdout
  */
 
-int _printf(const char *format, ...);
-
-int main(int argc, char const *argv[])
-{
-        _printf("great work\n");
-        _printf("%s\n","Yoseph");
-        _printf("%c\n",'a');
-        _printf("%%");
-        return 0;
-}
-
 int _printf(const char *format, ...)
 {
         int count = 0;
