@@ -9,10 +9,10 @@
 
 int int_print(va_list args)
 {
-	int number = va_arg(args, int);//assigning the argument into the number variable
-	int num, last_digit, digit, exp = 1;//creating a variable 
-	int count = 1;//intialize a variable count to count
-	last_digit = number % 10;// using module operator to find the last digit of our integer argument
+	int number = va_arg(args, int);
+	int num, last_digit, digit, exp = 1; 
+	int count = 1;
+	last_digit = number % 10;
 	number /= 10;
 	num = number;
 
