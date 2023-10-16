@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	format_func arr[] = {
 		{"%c", char_print}, {"%s", str_print}, {"%%", percent},
-		{"%i", int_print}, {"%d", int_print}
+		{"%i", dec_print}, {"%d", int_print}
 	};
 
 	va_start(args, format);

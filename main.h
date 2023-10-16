@@ -22,5 +22,7 @@ int _printf(const char *format, ...);
 int char_print(va_list c);
 int str_print(va_list s);
 int percent(void);
-int int_print(va_list n);
+int int_print(va_list args);
+int dec_print(va_list args);
+
 #endif
