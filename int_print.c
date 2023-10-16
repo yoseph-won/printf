@@ -1,40 +1,46 @@
 #include "main.h"
-/**
- * num_print - prints integers
- * @num: number to be printed
- * Return: the length of the numbers
- */
-int num_print(int num)
-{
-	int m, count = 0;
 
-	if (num < 10 && num >= 0)
-	{
-		_putchar(num + '0');
-		return (1);
-	}
-	if (num < 0)
+/**
+ * int_print - print an integer number\
+ * @i: the given integer
+ * return
+ * retun the given inter
+ */
+
+int int_print(va_list i)
+{
+	int number = va_arg(i, int);//assigning the argument into the number variable
+	int num, last_digit, digit, exp = 1;//creating a variable 
+	int count = 1;//intialize a variable count to count
+	last_digit = number % 10;// using module operator to find the last digit of our integer argument
+	number /= 10;
+	num = number;
+
+	if (last_digit < 0)
 	{
 		_putchar('-');
-		count++;
 		num = -num;
+		number = -number;
+		last_digit = -last_digit;
+		count++;
 	}
-	m = num % 10;
-	count += num_print(num / 10);
-	_putchar(m + '0');
-	count++;
+	if (num > 0)
+	{
+		for (int x = 0; num / 10 != 0; x++)
+		{
+			exp *= 10;
+			num /= 10;
+		}
+		num = number;
+		for (int y = 0; exp > 0; y++)
+		{
+			digit = num / exp;
+			_putchar(digit + '0');
+			num = num -(digit * exp);
+			exp /= 10;
+			count++;
+		}
+	}
+	_putchar(last_digit + '0');
 	return (count);
-}
-/**
- * int_print - prints given integer by calling num_print
- * @n: passed integer
- * Return: the length of the numbers printed using num_print
- */
-
-int int_print(va_list n)
-{
-	int num = va_arg(n, int), len;
-
-	len = num_print(num);
-	return (len);
 }
