@@ -11,7 +11,8 @@ int _printf(const char *format, ...)
 	int count = 0, i, j, flag;
 	va_list args;
 	format_func arr[] = {
-		{"%c", char_print}, {"%s", str_print}, {"%%", percent}
+		{"%c", char_print}, {"%s", str_print}, {"%%", percent},
+		{"%d", int_print}, {"%i", int_print}
 	};
 
 	va_start(args, format);
