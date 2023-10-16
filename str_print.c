@@ -6,13 +6,12 @@
  * Return: the length of the string
  */
 
-int str_print(char *s)
+int str_print(va_list s)
 {
-	int i;
 	char *str;
+	int i;
 
-	str = s;
-
+	str = va_arg(s, char *);
 	if (str == NULL)
 		str = "(null)";
 	for (i = 0; str[i] != '\0'; i++)

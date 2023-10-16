@@ -8,41 +8,33 @@
 
 int _printf(const char *format, ...)
 {
-	int count = 0, i;
+	int count = 0, i, j, flag;
 	va_list args;
+	format_func arr[] = {
+		{"%c", char_print}, {"%s", str_print}, {"%%", percent}
+	};
 
-	if (format == NULL)
-		return (-1);
 	va_start(args, format);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] != '%')
-			_putchar(format[i]);
-		else
+		flag = 0;
+		for (j = 0; j < 3; j++)
 		{
-			i++;
-			switch (format[i])
+			if (format[i] == arr[j].fmt[0] && format[i + 1] == arr[j].fmt[1])
 			{
-				case '\0':
-					break;
-				case '%':
-					_putchar('%');
-					break;
-				case 'c':
-					_putchar(va_arg(args, int));
-					break;
-				case 's':
-					count += str_print(va_arg(args, char *));
-					break;
-				default:
-					continue;
+				count += arr[j].func(args);
+				i++;
+				flag = 1;
+				break;
 			}
 		}
+		if (flag == 1)
+			continue;
+		_putchar(format[i]);
 		count++;
 	}
 	va_end(args);
 	return (count);
 }
-
-
-
