@@ -23,5 +23,4 @@ int char_print(va_list c);
 int str_print(va_list s);
 int percent(void);
 int int_print(va_list n);
-int num_print(int num);
 #endif
