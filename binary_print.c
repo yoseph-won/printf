@@ -9,7 +9,7 @@
 int binary_print(va_list num)
 {
 	unsigned int n = va_arg(num, int);
-       	int i, j, count = 0;
+	int i, j, count = 0;
 	char *hold;
 
 	hold = malloc(n);
@@ -20,7 +20,8 @@ int binary_print(va_list num)
 		n /= 2;
 		i++;
 	}
-	for (j = 0; hold[j] != '\0'; j++)
+	j = 0;
+	while (hold[j] != '\0')
 		j++;
 	for (i = j - 1; i >= 0; i--)
 	{
