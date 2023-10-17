@@ -8,7 +8,7 @@
 
 int binary_print(va_list num)
 {
-	unsigned int n = va_arg(num, int), j;
+	unsigned int n = va_arg(num, unsigned int), j;
 	int bit, count = 0, i = sizeof(n) * 8 - 1, flag = 0;
 	char *hold;
 
