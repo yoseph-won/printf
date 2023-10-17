@@ -27,5 +27,7 @@ int dec_print(va_list args);
 int binary_print(va_list num);
 int octal_print(va_list o);
 int decimal_print(va_list dec);
+int hex_print(va_list h);
+int heX_print(va_list H);
 
 #endif

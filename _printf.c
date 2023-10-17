@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	format_func arr[] = {
 		{"%c", char_print}, {"%s", str_print}, {"%%", percent}, {"%i", dec_print},
 		{"%d", int_print}, {"%b", binary_print}, {"%o", octal_print},
-		{"%u", decimal_print}
+		{"%u", decimal_print}, {"%x", hex_print}, {"%X", heX_print}
 
 	};
 
@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		flag = 0;
-		for (j = 0; j < 8; j++)
+		for (j = 0; j < 10; j++)
 		{
 			if (format[i] == arr[j].fmt[0] && format[i + 1] == arr[j].fmt[1])
 			{
