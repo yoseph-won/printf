@@ -8,24 +8,25 @@
 
 int binary_print(va_list num)
 {
-	unsigned int n = va_arg(num, int);
-	int i, j, count = 0;
+	unsigned int n = va_arg(num, int), j;
+	int bit, count = 0, i = sizeof(n) * 8 - 1, flag = 0;
 	char *hold;
 
 	hold = malloc(n);
-	i = 0;
-	while (n > 0)
-	{
-		hold[i] = (n % 2) + '0';
-		n /= 2;
-		i++;
-	}
 	j = 0;
-	while (hold[j] != '\0')
-		j++;
-	for (i = j - 1; i >= 0; i--)
+	while (i >= 0)
 	{
-		_putchar(hold[i]);
+		bit = (n >> i) & 1;
+		hold[j] = bit + '0';
+		i--;
+		j++;
+	}
+	for (j = 0; hold[j] != '\0'; j++)
+	{
+		if (hold[j] == '0' && flag == 0)
+			continue;
+		flag = 1;
+		_putchar(hold[j]);
 		count++;
 	}
 	free(hold);
