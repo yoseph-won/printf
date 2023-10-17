@@ -25,5 +25,7 @@ int percent(void);
 int int_print(va_list args);
 int dec_print(va_list args);
 int binary_print(va_list num);
+int octal_print(va_list o);
+
 
 #endif
