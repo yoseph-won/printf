@@ -28,7 +28,7 @@ int octal_print(va_list o)
 		i++;
 	}
 
-	i = --count;
+	i = count - 1;
 	while (i >= 0)
 	{
 		_putchar(hold[i] + '0');

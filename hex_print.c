@@ -28,7 +28,7 @@ int hex_print(va_list h)
 		i++;
 	}
 
-	i = --count;
+	i = count - 1;
 	while (i >= 0)
 	{
 		if (hold[i] > 9)
