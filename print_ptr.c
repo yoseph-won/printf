@@ -44,15 +44,15 @@ int print_ptr(va_list ptr)
 {
 	void *pr;
 	int i, j;
-	long ing k;
+	long int k;
 	char *str = "(nil)";
 
 	pr = va_arg(ptr, void *);
 
 	if (pr == NULL)
 	{
-		for (i = 0; s[i] != '\0'; i++)
-			_putchar(s[i]);
+		for (i = 0; str[i] != '\0'; i++)
+			_putchar(str[i]);
 		return (i);
 	}
 	k = (unsigned long int)pr;
