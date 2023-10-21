@@ -14,6 +14,7 @@ int _printf(const char *format, ...)
 		{"%i", dec_print}, {"%d", int_print}, {"%b", binary_print},
 		{"%o", octal_print}, {"%u", decimal_print}, {"%x", hex_print},
 		{"%X", heX_print}, {"%S", print_String}, {"%p", print_ptr},
+		{"%R", rot13}
 
 	};
 
@@ -23,7 +24,7 @@ int _printf(const char *format, ...)
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		flag = 0;
-		for (j = 0; j < 12; j++)
+		for (j = 0; j < 13; j++)
 		{
 			if (format[i] == arr[j].fmt[0] && format[i + 1] == arr[j].fmt[1])
 			{

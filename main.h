@@ -31,5 +31,6 @@ int hex_print(va_list h);
 int heX_print(va_list H);
 int print_String(va_list str);
 int print_ptr(va_list ptr);
+int rot13(va_list arg);
 
 #endif
