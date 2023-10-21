@@ -9,18 +9,18 @@
 int rot13(va_list arg)
 {
 	int i, j, k = 0, count = 0;
-	char let1 = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
-	char let2 = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"};
+	char *let1 = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
+	char *let2 = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"};
 	char *s = va_arg(arg, char *);
 
-	if (str == NULL)
-		str = "(null)";
+	if (s == NULL)
+		s = "(null)";
 	for (i = 0; s[i]; i++)
 	{
 		k = 0;
 		for (j = 0; let1[j] && !k; j++)
 		{
-			if (str[i] == let1[j])
+			if (s[i] == let1[j])
 			{
 				_putchar(let2[j]);
 				count++;
@@ -29,7 +29,7 @@ int rot13(va_list arg)
 		}
 		if (!k)
 		{
-			_putchar(str[i]);
+			_putchar(s[i]);
 			count++;
 		}
 	}
